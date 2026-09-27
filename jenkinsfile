@@ -29,6 +29,18 @@ pipeline {
             }
         }
 
+        stage('Test SSH') {
+            steps {
+                sshagent(['app-server-ssh']) {
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no \
+                        ubuntu@172.31.9.122 \
+                        "hostname && docker --version"
+                    '''
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh '''
