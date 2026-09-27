@@ -10,7 +10,7 @@ pipeline {
                 sshagent(['app-server-ssh']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no \
-                        ubuntu@<APP_PRIVATE_IP> \
+                        ubuntu@172.31.9.122 \
                         "hostname && docker --version"
                     '''
                 }
