@@ -2,20 +2,7 @@ pipeline {
 
     agent any
 
-    environment {
-        AWS_REGION = 'ap-south-2'
-        ECR_REPO = 'jenkins-pipeline-demo'
-        IMAGE_TAG = "${BUILD_NUMBER}"
-        APP_INSTANCE_ID = 'i-070a8aff8760bffb'
-    }
-
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
 
 
         stage('Test SSH') {
